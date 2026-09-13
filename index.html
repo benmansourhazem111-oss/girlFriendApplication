@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girlfriend Application 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" aria-hidden="true">💗 💕 💗 💕 💗</div>
+
+  <main class="container">
+    <section class="hero">
+      <div class="bear">🧸</div>
+      <h1>Girlfriend Application 💗</h1>
+      <p>Think you have what it takes? Fill in the application and choose your special date.</p>
+    </section>
+
+    <section class="card">
+      <form id="applicationForm">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" maxlength="80" placeholder="Enter your name" required>
+
+        <div class="two-col">
+          <div>
+            <label for="height">Height (cm)</label>
+            <input id="height" name="height" type="number" min="50" max="250" step="0.1" placeholder="e.g. 165" required>
+          </div>
+          <div>
+            <label for="weight">Weight (kg)</label>
+            <input id="weight" name="weight" type="number" min="20" max="250" step="0.1" placeholder="e.g. 55" required>
+          </div>
+        </div>
+
+        <label for="hobbies">Hobbies</label>
+        <textarea id="hobbies" name="hobbies" maxlength="500" placeholder="Music, movies, gym, gaming..." required></textarea>
+
+        <label for="date">Choose our date day</label>
+        <input id="date" name="date" type="date" required>
+        <small id="dateHint">Pick a day you would like to claim.</small>
+
+        <button id="submitBtn" type="submit">Submit Application 💌</button>
+        <p id="message" class="message"></p>
+      </form>
+    </section>
+
+    <section id="result" class="card result hidden">
+      <div class="trophy">🏆</div>
+      <h2>Application submitted!</h2>
+      <p id="resultText"></p>
+      <button id="showBoardBtn" class="secondary">Show Scoreboard</button>
+    </section>
+
+    <section id="scoreboard" class="card hidden">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">THE COMPETITION</span>
+          <h2>Scoreboard 🏆</h2>
+        </div>
+        <span id="countBadge" class="badge">0 applications</span>
+      </div>
+      <div id="board"></div>
+    </section>
+  </main>
+
+  <footer>Made with 💗 · Girlfriend Application</footer>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
