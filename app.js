@@ -73,7 +73,6 @@ day: "numeric"
 function escapeHtml(text) {
 return String(text).replace(/[&<>"']/g, function (c) {
 
-```
 return {
   "&": "&amp;",
   "<": "&lt;",
@@ -81,7 +80,6 @@ return {
   '"': "&quot;",
   "'": "&#039;"
 }[c];
-```
 
 });
 }
@@ -134,7 +132,6 @@ const response = await fetch(
 {
 method: "POST",
 
-```
   headers: {
     ...headers(),
     "Prefer": "return=representation"
@@ -142,7 +139,6 @@ method: "POST",
 
   body: JSON.stringify(data)
 }
-```
 
 );
 
@@ -164,20 +160,17 @@ countBadge.textContent =
 
 if (!items.length) {
 
-```
 board.innerHTML =
   `<div class="empty">
     No applications yet. Be the first 👀
   </div>`;
 
 return;
-```
 
 }
 
 board.innerHTML = items.map(function (item, index) {
 
-```
 return `
   <div class="board-row">
 
@@ -205,7 +198,6 @@ return `
 
   </div>
 `;
-```
 
 }).join("");
 }
@@ -214,7 +206,6 @@ async function loadBoard() {
 
 if (!configured) {
 
-```
 board.innerHTML =
   `<div class="empty">
     Scoreboard is waiting for Supabase configuration 👀
@@ -223,25 +214,21 @@ board.innerHTML =
 scoreboard.classList.remove("hidden");
 
 return;
-```
 
 }
 
 try {
 
-```
 const items = await getApplications();
 
 renderBoard(items);
 
 scoreboard.classList.remove("hidden");
-```
 
 }
 
 catch (err) {
 
-```
 board.innerHTML =
   `<div class="empty">
     Could not load the scoreboard yet.
@@ -252,7 +239,6 @@ board.innerHTML =
   </div>`;
 
 scoreboard.classList.remove("hidden");
-```
 
 }
 }
@@ -273,7 +259,6 @@ submitBtn.textContent = "Submitting...";
 
 const data = {
 
-```
 name:
   document.getElementById("name")
     .value
@@ -296,13 +281,11 @@ hobbies:
 
 date_day:
   dateInput.value
-```
 
 };
 
 try {
 
-```
 const inserted =
   await submitApplication(data);
 
@@ -342,30 +325,25 @@ result.scrollIntoView({
 form.reset();
 
 dateInput.min = todayISO();
-```
 
 }
 
 catch (err) {
 
-```
 setMessage(
   err.message ||
   "Something went wrong.",
   true
 );
-```
 
 }
 
 finally {
 
-```
 submitBtn.disabled = false;
 
 submitBtn.textContent =
   "Submit Application 💌";
-```
 
 }
 
@@ -379,14 +357,12 @@ showBoardBtn.addEventListener(
 "click",
 async function () {
 
-```
 await loadBoard();
 
 scoreboard.scrollIntoView({
   behavior: "smooth",
   block: "center"
 });
-```
 
 }
 );
@@ -399,7 +375,6 @@ showPaymentBtn.addEventListener(
 "click",
 function () {
 
-```
 payment.classList.remove("hidden");
 
 paymentMessage.textContent =
@@ -414,7 +389,6 @@ setTimeout(function () {
   });
 
 }, 100);
-```
 
 }
 );
@@ -427,7 +401,6 @@ payBtn.addEventListener(
 "click",
 function () {
 
-```
 const jokes = [
 
   "😭 PAYMENT FAILED: You really thought I'd let you buy your way into first place?",
@@ -472,7 +445,6 @@ setTimeout(function () {
   payBtn.disabled = false;
 
 }, 2200);
-```
 
 }
 );
