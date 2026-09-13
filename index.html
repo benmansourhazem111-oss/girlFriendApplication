@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,92 +7,310 @@
   <title>Girlfriend Application 💗</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <div class="hearts" aria-hidden="true">💗 💕 💗 💕 💗</div>
 
   <main class="container">
-    <section class="hero">
-      <div class="bear" aria-hidden="true">🧸</div>
-      <h1>Girlfriend Application 💗</h1>
-      <p id="formIntro">Think you have what it takes? Fill in the application and choose your special date.</p>
-    </section>
 
-    <section class="card">
-      <form id="applicationForm" aria-labelledby="formTitle" aria-describedby="formIntro">
-        <h2 id="formTitle" class="sr-only">Girlfriend application form</h2>
+```
+<section class="hero">
+  <div class="bear" aria-hidden="true">🧸</div>
+  <h1>Girlfriend Application 💗</h1>
+  <p id="formIntro">
+    Think you have what it takes? Fill in the application and choose your special date.
+  </p>
+</section>
 
-        <label for="name">Your name</label>
-        <input id="name" name="name" type="text" maxlength="80" placeholder="Enter your name" autocomplete="name" aria-describedby="nameHint" required>
-        <small id="nameHint" class="form-hint">Enter the name you'd like to appear on the scoreboard.</small>
 
-        <div class="two-col">
-          <div>
-            <label for="height">Height (cm)</label>
-            <input id="height" name="height" type="number" min="50" max="250" step="0.1" inputmode="decimal" placeholder="e.g. 165" aria-describedby="heightHint" required>
-            <small id="heightHint" class="form-hint">Enter your height in centimeters.</small>
-          </div>
-          <div>
-            <label for="weight">Weight (kg)</label>
-            <input id="weight" name="weight" type="number" min="20" max="250" step="0.1" inputmode="decimal" placeholder="e.g. 55" aria-describedby="weightHint" required>
-            <small id="weightHint" class="form-hint">Enter your weight in kilograms.</small>
-          </div>
-        </div>
+<!-- APPLICATION FORM -->
 
-        <label for="hobbies">Hobbies</label>
-        <textarea id="hobbies" name="hobbies" maxlength="500" placeholder="Music, movies, gym, gaming..." aria-describedby="hobbiesHint" required></textarea>
-        <small id="hobbiesHint" class="form-hint">Tell us about your favorite activities, interests, music, movies, games, or anything else you enjoy. Maximum 500 characters.</small>
+<section class="card">
+  <form id="applicationForm"
+        aria-labelledby="formTitle"
+        aria-describedby="formIntro">
 
-        <label for="date">Choose our date day</label>
-        <input id="date" name="date" type="date" aria-describedby="dateHint" required>
-        <small id="dateHint" class="form-hint">Pick a day you'd like to claim for our special date. Only today or future dates are allowed.</small>
+    <h2 id="formTitle" class="sr-only">
+      Girlfriend application form
+    </h2>
 
-        <button id="submitBtn" type="submit">Submit Application 💌</button>
-        <p id="message" class="message" role="status" aria-live="polite"></p>
-      </form>
-    </section>
+    <label for="name">Your name</label>
 
-    <section id="result" class="card result hidden" aria-live="polite">
-      <div class="trophy" aria-hidden="true">🏆</div>
-      <h2>Application submitted!</h2>
-      <p id="resultText"></p>
-      <button id="showBoardBtn" class="secondary" type="button">Show Scoreboard</button>
-      <button id="showPaymentBtn" class="payment-link" type="button">💸 Try to Buy Your Position</button>
-    </section>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      maxlength="80"
+      placeholder="Enter your name"
+      autocomplete="name"
+      aria-describedby="nameHint"
+      required
+    >
 
-    <section id="scoreboard" class="card hidden" aria-labelledby="scoreboardTitle">
-      <div class="section-title">
-        <div>
-          <span class="eyebrow">THE COMPETITION</span>
-          <h2 id="scoreboardTitle">Scoreboard 🏆</h2>
-        </div>
-        <span id="countBadge" class="badge" aria-live="polite">0 applications</span>
-      </div>
-      <div id="board" aria-live="polite"></div>
-    </section>
+    <small id="nameHint" class="form-hint">
+      Enter the name you'd like to appear on the scoreboard.
+    </small>
 
-    <section id="payment" class="card payment hidden" aria-labelledby="paymentTitle">
-      <div class="trophy" aria-hidden="true">💳</div>
-      <span class="eyebrow">VIP GIRLFRIEND ACCESS</span>
-      <h2 id="paymentTitle">Buy Your Scoreboard Position 💸</h2>
-      <p id="paymentDescription">Want to climb the leaderboard? Obviously this is a completely serious and legitimate payment system. Definitely. Probably.</p>
 
-      <div class="price-list" aria-label="Scoreboard position prices">
-        <div class="price-row"><span>🥇 1st Place</span><strong>1000 TND</strong></div>
-        <div class="price-row"><span>🥈 2nd Place</span><strong>500 TND</strong></div>
-        <div class="price-row"><span>🥉 3rd Place</span><strong>300 TND</strong></div>
-        <div class="price-row"><span>4th Place</span><strong>200 TND</strong></div>
-        <div class="price-row"><span>5th Place</span><strong>100 TND</strong></div>
-        <div class="price-row"><span>6th+ Place</span><strong>50 TND</strong></div>
+    <div class="two-col">
+
+      <div>
+        <label for="height">Height (cm)</label>
+
+        <input
+          id="height"
+          name="height"
+          type="number"
+          min="50"
+          max="250"
+          step="0.1"
+          inputmode="decimal"
+          placeholder="e.g. 165"
+          aria-describedby="heightHint"
+          required
+        >
+
+        <small id="heightHint" class="form-hint">
+          Enter your height in centimeters.
+        </small>
       </div>
 
-      <button id="payBtn" type="button" aria-describedby="paymentDescription">💳 Pay &amp; Buy My Position</button>
-      <p id="paymentMessage" class="payment-message" role="status" aria-live="polite"></p>
-    </section>
+
+      <div>
+        <label for="weight">Weight (kg)</label>
+
+        <input
+          id="weight"
+          name="weight"
+          type="number"
+          min="20"
+          max="250"
+          step="0.1"
+          inputmode="decimal"
+          placeholder="e.g. 55"
+          aria-describedby="weightHint"
+          required
+        >
+
+        <small id="weightHint" class="form-hint">
+          Enter your weight in kilograms.
+        </small>
+      </div>
+
+    </div>
+
+
+    <label for="hobbies">Hobbies</label>
+
+    <textarea
+      id="hobbies"
+      name="hobbies"
+      maxlength="500"
+      placeholder="Music, movies, gym, gaming..."
+      aria-describedby="hobbiesHint"
+      required
+    ></textarea>
+
+    <small id="hobbiesHint" class="form-hint">
+      Tell us about your favorite activities, interests, music, movies,
+      games, or anything else you enjoy. Maximum 500 characters.
+    </small>
+
+
+    <label for="date">Choose our date day</label>
+
+    <input
+      id="date"
+      name="date"
+      type="date"
+      aria-describedby="dateHint"
+      required
+    >
+
+    <small id="dateHint" class="form-hint">
+      Pick a day you'd like to claim for our special date.
+      Only today or future dates are allowed.
+    </small>
+
+
+    <button id="submitBtn" type="submit">
+      Submit Application 💌
+    </button>
+
+    <p
+      id="message"
+      class="message"
+      role="status"
+      aria-live="polite"
+    ></p>
+
+  </form>
+</section>
+
+
+<!-- RESULT -->
+
+<section
+  id="result"
+  class="card result hidden"
+  aria-live="polite"
+>
+
+  <div class="trophy" aria-hidden="true">🏆</div>
+
+  <h2>Application submitted!</h2>
+
+  <p id="resultText"></p>
+
+  <button
+    id="showBoardBtn"
+    class="secondary"
+    type="button"
+  >
+    Show Scoreboard
+  </button>
+
+  <button
+    id="showPaymentBtn"
+    class="payment-link"
+    type="button"
+  >
+    💸 Try to Buy Your Position
+  </button>
+
+</section>
+
+
+<!-- SCOREBOARD -->
+
+<section
+  id="scoreboard"
+  class="card hidden"
+  aria-labelledby="scoreboardTitle"
+>
+
+  <div class="section-title">
+
+    <div>
+      <span class="eyebrow">
+        THE COMPETITION
+      </span>
+
+      <h2 id="scoreboardTitle">
+        Scoreboard 🏆
+      </h2>
+    </div>
+
+    <span
+      id="countBadge"
+      class="badge"
+      aria-live="polite"
+    >
+      0 applications
+    </span>
+
+  </div>
+
+  <div id="board" aria-live="polite"></div>
+
+</section>
+
+
+<!-- PAYMENT PRANK -->
+
+<section
+  id="payment"
+  class="card payment hidden"
+  aria-labelledby="paymentTitle"
+>
+
+  <div class="trophy" aria-hidden="true">
+    💳
+  </div>
+
+  <span class="eyebrow">
+    VIP GIRLFRIEND ACCESS
+  </span>
+
+  <h2 id="paymentTitle">
+    Buy Your Scoreboard Position 💸
+  </h2>
+
+  <p id="paymentDescription">
+    Want to climb the leaderboard?
+    Obviously this is a completely serious and legitimate payment system.
+    Definitely. Probably.
+  </p>
+
+
+  <div
+    class="price-list"
+    aria-label="Scoreboard position prices"
+  >
+
+    <div class="price-row">
+      <span>🥇 1st Place</span>
+      <strong>1000 TND</strong>
+    </div>
+
+    <div class="price-row">
+      <span>🥈 2nd Place</span>
+      <strong>500 TND</strong>
+    </div>
+
+    <div class="price-row">
+      <span>🥉 3rd Place</span>
+      <strong>300 TND</strong>
+    </div>
+
+    <div class="price-row">
+      <span>4th Place</span>
+      <strong>200 TND</strong>
+    </div>
+
+    <div class="price-row">
+      <span>5th Place</span>
+      <strong>100 TND</strong>
+    </div>
+
+    <div class="price-row">
+      <span>6th+ Place</span>
+      <strong>50 TND</strong>
+    </div>
+
+  </div>
+
+
+  <button
+    id="payBtn"
+    type="button"
+    aria-describedby="paymentDescription"
+  >
+    💳 Pay &amp; Buy My Position
+  </button>
+
+  <p
+    id="paymentMessage"
+    class="payment-message"
+    role="status"
+    aria-live="polite"
+  ></p>
+
+</section>
+```
+
   </main>
 
-  <footer>Made with 💗 · Girlfriend Application</footer>
+  <footer>
+    Made with 💗 · Girlfriend Application
+  </footer>
+
+  <!-- CONFIG MUST COME FIRST -->
 
   <script src="config.js"></script>
+
   <script src="app.js"></script>
+
 </body>
 </html>
